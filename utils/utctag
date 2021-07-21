@@ -1,4 +1,4 @@
 #!/usr/bin/sh
 
-TAG=`date -u +%Y%m%d%H%M%S`
+TAG=$(date -u +%Y%m%d%H%M%S)
 echo "${TAG}"
