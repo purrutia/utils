@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 TODAY=$(date +%d\ -\ %m\ -\ %Y)
 echo '```'
-figlet "${TODAY}" -f smblock
+figlet "${TODAY}" -f /usr/share/figlet/fonts/smblock.tlf
 echo '```'
