@@ -1,7 +1,8 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 
 main() {
-    ${EDITOR} $(which $1)
+    cmd="$(command -v $1)"
+    test -n "$cmd" && exec vi "${cmd}"
 }
 
-main $@
+main "$@"
