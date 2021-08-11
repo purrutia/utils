@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+main() {
+    ${EDITOR} $(which $1)
+}
+
+main $@
