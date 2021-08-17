@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+# Test if environmental variable SCRIPTS exists
+test ! -n "${SCRIPTS}" && echo "SCRIPTS not set" && exit 1
+
+# Test if the command has the name of the new script
+test ! -n "${1}" && echo "usage: newx <script name>" && exit 1
+
+script=${1}
+path="${SCRIPTS}/${script}"
+
+# if the script already exists, asks for edition
+if test -e "${path}"; then
+    read -p "${script} already exists. Edit? " yes
+    case "${yes}" in
+        y|yes|yep|yeah|ok|okay) exec vi "${path}"
+    esac
+    exit 0
+fi
+
+# Create the file
+printf "#!/usr/bin/bash\n\n" > "${path}"
+
+# Make the file executable
+chmod +x "${path}"
+
+# Edit with vi (starting on the second line)
+exec vi +2 "${path}"
