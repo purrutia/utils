@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+# Shows titles of my Zettelkasten
+
+for directory in $(ls -d ${ZETTELKASTEN}*/); do
+    echo "-------------"
+    ztag="${directory%/}"
+    ztag="${ztag##*/}"
+    echo "${ztag}"
+    cat "${directory}/README.md" | grep "^# "
+done
