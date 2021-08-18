@@ -3,7 +3,7 @@
 # View status of all repos
 
 for repo in $(ls ${REPOS}); do
-    cd "${REPOS}${repo}"
+    cd "${REPOS}/${repo}"
     echo "--------------------"
     echo "${repo}"
     echo "--------------------"
