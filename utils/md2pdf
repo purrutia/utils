@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+# TODO:
+# make usage function
+# make file extension checks
+
+main () {
+  INPUTFILE="{$1}"
+  OUTPUTFILE="{$2}"
+
+  pandoc -f markdown "{$INPUTFILE}" --pdf-engine=xelatex -o "{$OUTPUTFILE}"
+
+}
+
+main $@
