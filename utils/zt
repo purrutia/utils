@@ -2,9 +2,9 @@
 # Shows titles of my Zettelkasten
 
 for directory in $(ls -d ${ZETTELKASTEN}*/); do
-    echo "-------------"
+    echo "--------------"
     ztag="${directory%/}"
     ztag="${ztag##*/}"
-    echo "${ztag}"
-    cat "${directory}/README.md" | grep "^# "
+    title=`cat "${directory}/README.md" | grep "^# "`
+    echo "${ztag} --- ${title}"
 done

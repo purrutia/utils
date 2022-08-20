@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+TOMORROW=$(date --date="tomorrow" +%d\ -\ %m\ -\ %Y)
+echo '```'
+figlet "${TOMORROW}" -f /usr/share/figlet/fonts/smblock.tlf
+echo '```'
+

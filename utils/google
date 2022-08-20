@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+lynx "google.com/search?q=$*"

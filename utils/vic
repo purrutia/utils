@@ -2,7 +2,7 @@
 
 main() {
     cmd="$(command -v $1)"
-    test -n "$cmd" && exec vi "${cmd}"
+    test -n "$cmd" && exec nvim "${cmd}"
 }
 
 main "$@"

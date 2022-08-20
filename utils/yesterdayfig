@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+YESTERDAY=$(date --date="yesterday" +%d\ -\ %m\ -\ %Y)
+echo '```'
+figlet "${YESTERDAY}" -f /usr/share/figlet/fonts/smblock.tlf
+echo '```'
+
