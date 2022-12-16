@@ -1,0 +1,45 @@
+#!/usr/bin/bash
+
+cd ~/vimwiki/diary/
+
+# Dict to save projects and tasks
+declare -A projects
+
+# Search files a week ago and save it on projects dict
+for i in {7..1}; do
+  # construct file name
+  day=$(date --date="$i day ago" +"%F.md")
+
+  # if file exists
+  if [ -f "$day" ]; then
+    echo "$day"
+    # read the file
+    while read -r line; do
+      # save groupname
+      if [[ $line == \#* ]]; then
+        project="${line// /_}"
+      fi
+      #print task
+      if [[ $line == -\ \[X* ]]; then
+        task="${line// /_}"
+        projects[$project]+=" $task"
+      fi
+    done < $day
+  fi
+done
+
+#separator
+echo " "
+echo "----"
+echo " "
+
+# Print projects dict of lists
+
+for key in ${!projects[@]}; do
+  echo " "
+  echo "${key//_/ }"
+  proj=(${projects[$key]})
+  for task in ${proj[@]}; do
+    echo "${task//_/ }"
+  done
+done

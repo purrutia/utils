@@ -13,7 +13,7 @@ path="${SCRIPTS}/${script}"
 if test -e "${path}"; then
     read -p "${script} already exists. Edit? " yes
     case "${yes}" in
-        y|yes|yep|yeah|ok|okay) exec vi "${path}"
+        y|yes|yep|yeah|ok|okay) exec nvim "${path}"
     esac
     exit 0
 fi
@@ -24,5 +24,5 @@ printf "#!/usr/bin/bash\n\n" > "${path}"
 # Make the file executable
 chmod +x "${path}"
 
-# Edit with vi (starting on the second line)
-exec vi +2 "${path}"
+# Edit with nvim (starting on the second line)
+exec nvim +2 "${path}"

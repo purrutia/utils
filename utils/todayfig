@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-TODAY=$(date +%d\ -\ %m\ -\ %Y)
+TODAY=$(date +"%A %b %d, %Y")
 echo '```'
-figlet "${TODAY}" -f /usr/share/figlet/fonts/smblock.tlf
+figlet "${TODAY}" -f /usr/share/figlet/fonts/future.tlf
 echo '```'
