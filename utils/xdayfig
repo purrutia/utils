@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+DAY=$(date --date="$1 day ago" +"%A %b %d, %Y")
+echo '```'
+figlet "${DAY}" -f /usr/share/figlet/fonts/future.tlf
+echo '```'
+
