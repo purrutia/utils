@@ -5,8 +5,15 @@ cd ~/vimwiki/diary/
 # Dict to save projects and tasks
 declare -A projects
 
+# variable to know how many days ago
+if [ -z "$1" ]; then
+  DA=7
+else
+  DA="$1"
+fi
+
 # Search files a week ago and save it on projects dict
-for i in {7..1}; do
+for i in $(seq "$DA" -1 1); do
   # construct file name
   day=$(date --date="$i day ago" +"%F.md")
 
