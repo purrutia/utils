@@ -11,9 +11,13 @@ if [ -z "$1" ]; then
 else
   DA="$1"
 fi
-
+# Use one week
+DE=1
+if [[ $DA -gt 7 ]]; then
+  DE=$(("$DA" - 6))
+fi
 # Search files a week ago and save it on projects dict
-for i in $(seq "$DA" -1 1); do
+for i in $(seq "$DA" -1 "$DE"); do
   # construct file name
   day=$(date --date="$i day ago" +"%F.md")
 
