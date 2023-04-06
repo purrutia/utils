@@ -1,13 +1,13 @@
 #!/usr/bin/bash
 
-# Test if environmental variable SCRIPTS exists
-test ! -n "${SCRIPTS}" && echo "SCRIPTS not set" && exit 1
+# Test if environmental variable UTILS exists
+test ! -n "${UTILS}" && echo "UTILS not set" && exit 1
 
 # Test if the command has the name of the new script
 test ! -n "${1}" && echo "usage: newx <script name>" && exit 1
 
 script=${1}
-path="${SCRIPTS}/${script}"
+path="${UTILS}/${script}"
 
 # if the script already exists, asks for edition
 if test -e "${path}"; then
