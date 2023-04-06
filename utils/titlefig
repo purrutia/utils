@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 TITLE="$@"
 echo '```'
-figlet "${TITLE}" -f /usr/share/figlet/fonts/future.tlf
+figlet "${TITLE}" -f future -d "${FIGLETFONTS}"
 echo '```'
 

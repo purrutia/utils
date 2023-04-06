@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 YESTERDAY=$(date --date="yesterday" +"%A %b %d, %Y")
 echo '```'
-figlet "${YESTERDAY}" -f /usr/share/figlet/fonts/future.tlf
+figlet "${YESTERDAY}" -f future -d "${FIGLETFONTS}"
 echo '```'
 
