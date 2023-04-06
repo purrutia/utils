@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+powershell.exe Get-Clipboard | tr -d '\r' | sed -z '$ s/\n$//'
+
