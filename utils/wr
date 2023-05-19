@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-cd ~/vimwiki/diary/
+cd ~/vimwiki/diary/ || exit
 
 # Dict to save projects and tasks
 declare -A projects
@@ -35,7 +35,7 @@ for i in $(seq "$DA" -1 "$DE"); do
         task="${line// /_}"
         projects[$project]+=" $task"
       fi
-    done < $day
+    done < "$day"
   fi
 done
 
@@ -46,11 +46,11 @@ echo " "
 
 # Print projects dict of lists
 
-for key in ${!projects[@]}; do
+for key in "${!projects[@]}"; do
   echo " "
   echo "${key//_/ }"
   proj=(${projects[$key]})
-  for task in ${proj[@]}; do
+  for task in "${proj[@]}"; do
     echo "${task//_/ }"
   done
 done
