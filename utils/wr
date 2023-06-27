@@ -47,8 +47,9 @@ echo " "
 # Print projects dict of lists
 
 for key in "${!projects[@]}"; do
-  echo " "
+  echo ""
   echo "${key//_/ }"
+  echo ""
   proj=(${projects[$key]})
   for task in "${proj[@]}"; do
     echo "${task//_/ }"
