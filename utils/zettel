@@ -1,0 +1,35 @@
+#!/usr/bin/bash
+
+# Test if environmental variable ZETTELKASTEN exists
+test ! -n "${ZETTELKASTEN}" && echo "ZETTELKASTEN not set" && exit 1
+test ! -n "${EDITOR}" && echo "EDITOR not set" && exit 1
+
+ZETTAG=$(utctag)
+
+main () {
+  ZETTELTITLE="$@"
+  cd "${ZETTELKASTEN}" || exit
+  mkdir "${ZETTAG}"
+  ZETFILE="${ZETTAG}/README.md"
+  touch "${ZETFILE}"
+  {
+    echo "# $ZETTELTITLE"
+    echo ""
+    echo ""
+    echo "## This zettel:"
+    echo ""
+    echo "* $ZETTAG"
+    echo ""
+    echo "## Related"
+    echo ""
+    echo ""
+    echo "## Tags"
+    echo ""
+    echo "  #fleeting"
+  } >> "${ZETTAG}/README.md"
+  exec ${EDITOR} "${ZETFILE}"
+}
+
+main $@
+
+# TODO: check title
