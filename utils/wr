@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-cd ~/vimwiki/diary/ || exit
+cd ~/obsidian_vaults/Second_Brain/Daily_Notes/ || exit
 
 # Dict to save projects and tasks
 declare -A projects
@@ -31,7 +31,7 @@ for i in $(seq "$DA" -1 "$DE"); do
         project="${line// /_}"
       fi
       #print task
-      if [[ $line == -\ \[X* ]]; then
+      if [[ $line == -\ \[x* ]]; then
         task="${line// /_}"
         projects[$project]+=" $task"
       fi
